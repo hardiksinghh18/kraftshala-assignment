@@ -18,6 +18,7 @@ function App() {
   const [dayDate, setDayDate] = useState('')
   const [weatherCondition, setWeatherCondition] = useState('')
   const [weatherDetails, setWeatherDetails] = useState('')
+  const [loading,setLoading]=useState(false)
 
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=imperial&appid=b1d4bfa74ced4e2f24cfa94f70460251`
 
@@ -26,8 +27,8 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-
-
+ 
+      // setLoading(true)
       const res = await axios.get(url)
 
       setData(res?.data)
@@ -35,6 +36,7 @@ function App() {
       setWeatherDetails(res?.data?.weather[0]?.description)
       
       setLocation('')
+      // setLoading(false)
     } catch (error) {
       console.log(error)
     }
@@ -47,7 +49,7 @@ function App() {
 
     try {
 
-
+      setLoading(true)
       const res = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=b1d4bfa74ced4e2f24cfa94f70460251`)
 
       setData(res?.data)
@@ -60,6 +62,7 @@ function App() {
       setWeatherDetails(res?.data?.weather[0]?.description)
       
       setLocation('')
+      setLoading(false)
 
       // console.log(res.data.main.temp)
 
@@ -154,6 +157,13 @@ function App() {
   const imageUrl = weatherImages[weatherCondition] || clear;
 
 
+
+
+  if(loading){
+    return (
+      <div className='loading'>Loading...</div>
+    )
+  }
 
   return (
     <div className='mainBody'>
