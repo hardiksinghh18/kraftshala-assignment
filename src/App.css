@@ -1,38 +1,212 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Outfit', 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url(./assets/sunset.jpg);
+  background-position: center;
+color: white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.flex-row{
+  display: flex;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.flex-col{
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.overlay{
+  background-color: black;
+  width: 80vw;
+  height: 90vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: .8;
+  border-radius: 1rem;
+}
+
+.displayBox{
+  display: flex;
+  width: 80vw;
+  height: 90vh;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  
+  border-radius: 1rem;
+  box-shadow: 1px 1px 2px rgb(30, 30, 30);
+}
+
+
+.section1{
+  display: flex;
+  justify-content: space-between ;
+  align-items: center;
+  width: 50%;
+  flex-direction: column;
+  padding: 2rem 4rem 3rem 4rem;
+}
+
+form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+}
+form input{
+  all: unset;
+  background-color: transparent;
   color: white;
+  z-index: 10;
+  border-bottom: 1px solid white;
+  /* border-radius: 1rem; */
+  padding: .5rem 1.5rem;
+  font-weight: 700;
 }
 
-.App-link {
-  color: #61dafb;
+
+input:focus {
+  outline: none /* Removes the border when the input is clicked */
+}
+form button{
+  background-color: transparent;
+  border: none ;
+  color: white;
+  font-size: 1.5rem;
+  position: relative;
+  top: .25rem;
+}
+.cloud i{
+  color: white;
+  font-size: 5rem;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+.bottom{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.section2{
+  border-left: 1px solid rgb(46, 46, 46) ;
+  background-color:rgba(0, 0, 0, 0.258) ;
+  /* opacity: .5; */
+  width: 50%;
+  border-radius: 1rem;
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  
+ gap: 1rem;
+}
+
+
+.space-between{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.image img{
+  height: 8rem;
+}
+
+.maindiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ gap: 1.5rem;
+}
+
+.maindiv .city-temp{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.section2 .city-weather{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+
+@media only screen and (max-width: 600px){
+	/*Big smartphones [426px -> 600px]*/
+ 
+  .displayBox{
+    flex-direction: column;
+    height: fit-content;
+   
+gap: 2rem;
+    display: flex;
+    width: 100vw;
+    height: fit-content;
+    position: fixed;
+    top: 0; 
+    left: 0;
+    padding: 1rem;
+    transform: translate(0, 0);
+    border-radius: 1rem;
+    box-shadow: 1px 1px 2px rgb(30, 30, 30);
   }
-  to {
-    transform: rotate(360deg);
+  .overlay{
+   width: 100vw;
   }
+
+  .section1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+     padding: 0;
+     gap: 1rem;
+  }
+
+  .section2{
+    padding: 0;
+width: 100%;
+  }
+  
+
+  h2{
+    font-size: 1rem;
+  }
+  h1{
+    font-size: 1.5rem;
+  }
+h3{
+  font-size: 1rem;
+}
+  .image img{
+    height: 4rem;
+  }
+  
 }
